@@ -29,6 +29,7 @@
 		958163072695DE51005E3D6C /* AudioTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958163062695DE51005E3D6C /* AudioTrack.swift */; };
 		958163092695DE5A005E3D6C /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958163082695DE5A005E3D6C /* Artist.swift */; };
 		9581630B2695DE65005E3D6C /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9581630A2695DE65005E3D6C /* UserProfile.swift */; };
+		9581630D2695E9E6005E3D6C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9581630C2695E9E6005E3D6C /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		958163062695DE51005E3D6C /* AudioTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTrack.swift; sourceTree = "<group>"; };
 		958163082695DE5A005E3D6C /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		9581630A2695DE65005E3D6C /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		9581630C2695E9E6005E3D6C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				958162CD2695D9F9005E3D6C /* AppDelegate.swift */,
 				958162CF2695D9F9005E3D6C /* SceneDelegate.swift */,
 				958162D62695D9FC005E3D6C /* Assets.xcassets */,
+				9581630C2695E9E6005E3D6C /* Extensions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				958162F02695DDAB005E3D6C /* AuthViewController.swift in Sources */,
 				958162CE2695D9F9005E3D6C /* AppDelegate.swift in Sources */,
 				9581630B2695DE65005E3D6C /* UserProfile.swift in Sources */,
+				9581630D2695E9E6005E3D6C /* Extensions.swift in Sources */,
 				958162EC2695DD6E005E3D6C /* LibraryViewController.swift in Sources */,
 				958163092695DE5A005E3D6C /* Artist.swift in Sources */,
 				958162FB2695DDF2005E3D6C /* PlaylistViewController.swift in Sources */,
