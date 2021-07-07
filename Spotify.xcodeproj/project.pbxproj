@@ -31,6 +31,7 @@
 		9581630B2695DE65005E3D6C /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9581630A2695DE65005E3D6C /* UserProfile.swift */; };
 		9581630D2695E9E6005E3D6C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9581630C2695E9E6005E3D6C /* Extensions.swift */; };
 		9581630F2695FD26005E3D6C /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9581630E2695FD26005E3D6C /* AuthResponse.swift */; };
+		95816311269615C6005E3D6C /* SettingsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95816310269615C6005E3D6C /* SettingsModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		9581630A2695DE65005E3D6C /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		9581630C2695E9E6005E3D6C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		9581630E2695FD26005E3D6C /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
+		95816310269615C6005E3D6C /* SettingsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				958163082695DE5A005E3D6C /* Artist.swift */,
 				9581630A2695DE65005E3D6C /* UserProfile.swift */,
 				9581630E2695FD26005E3D6C /* AuthResponse.swift */,
+				95816310269615C6005E3D6C /* SettingsModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				958163072695DE51005E3D6C /* AudioTrack.swift in Sources */,
 				958162D22695D9F9005E3D6C /* HomeViewController.swift in Sources */,
 				958162F02695DDAB005E3D6C /* AuthViewController.swift in Sources */,
+				95816311269615C6005E3D6C /* SettingsModels.swift in Sources */,
 				958162CE2695D9F9005E3D6C /* AppDelegate.swift in Sources */,
 				9581630B2695DE65005E3D6C /* UserProfile.swift in Sources */,
 				9581630D2695E9E6005E3D6C /* Extensions.swift in Sources */,
