@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RecommededTrackCollectionViewCell: UICollectionViewCell {
-    static let identifier = "RecommededTrackCollectionViewCell"
+class RecommendedTrackCollectionViewCell: UICollectionViewCell {
+    static let identifier = "RecommendedTrackCollectionViewCell"
     
 }
