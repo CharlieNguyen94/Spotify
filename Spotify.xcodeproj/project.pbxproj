@@ -41,6 +41,8 @@
 		95E302D026973C4C002057D7 /* FeaturedPlaylistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E302CF26973C4C002057D7 /* FeaturedPlaylistCollectionViewCell.swift */; };
 		95E302D226973C68002057D7 /* RecommendedTrackCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E302D126973C68002057D7 /* RecommendedTrackCollectionViewCell.swift */; };
 		95E302D426974716002057D7 /* NewReleasesCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E302D326974716002057D7 /* NewReleasesCellViewModel.swift */; };
+		95E302D626975CE3002057D7 /* FeaturedPlaylistCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E302D526975CE3002057D7 /* FeaturedPlaylistCellViewModel.swift */; };
+		95E302D826975D21002057D7 /* RecommendedTrackCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E302D726975D21002057D7 /* RecommendedTrackCellViewModel.swift */; };
 		95E9E75426970E850091E9A0 /* APIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E9E75326970E850091E9A0 /* APIImage.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +84,8 @@
 		95E302CF26973C4C002057D7 /* FeaturedPlaylistCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedPlaylistCollectionViewCell.swift; sourceTree = "<group>"; };
 		95E302D126973C68002057D7 /* RecommendedTrackCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedTrackCollectionViewCell.swift; sourceTree = "<group>"; };
 		95E302D326974716002057D7 /* NewReleasesCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReleasesCellViewModel.swift; sourceTree = "<group>"; };
+		95E302D526975CE3002057D7 /* FeaturedPlaylistCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedPlaylistCellViewModel.swift; sourceTree = "<group>"; };
+		95E302D726975D21002057D7 /* RecommendedTrackCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedTrackCellViewModel.swift; sourceTree = "<group>"; };
 		95E9E75326970E850091E9A0 /* APIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIImage.swift; sourceTree = "<group>"; };
 		B062AF9068FE09038D588934 /* Pods-Spotify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spotify.release.xcconfig"; path = "Target Support Files/Pods-Spotify/Pods-Spotify.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -187,6 +191,8 @@
 			isa = PBXGroup;
 			children = (
 				95E302D326974716002057D7 /* NewReleasesCellViewModel.swift */,
+				95E302D526975CE3002057D7 /* FeaturedPlaylistCellViewModel.swift */,
+				95E302D726975D21002057D7 /* RecommendedTrackCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -364,7 +370,9 @@
 				958163052695DE45005E3D6C /* Playlist.swift in Sources */,
 				958162FF2695DE16005E3D6C /* AuthManager.swift in Sources */,
 				95E302D426974716002057D7 /* NewReleasesCellViewModel.swift in Sources */,
+				95E302D826975D21002057D7 /* RecommendedTrackCellViewModel.swift in Sources */,
 				958162FD2695DDFE005E3D6C /* SearchResultsViewController.swift in Sources */,
+				95E302D626975CE3002057D7 /* FeaturedPlaylistCellViewModel.swift in Sources */,
 				95E9E75426970E850091E9A0 /* APIImage.swift in Sources */,
 				958162F22695DDB6005E3D6C /* WelcomeViewController.swift in Sources */,
 				958162F72695DDDB005E3D6C /* ProfileViewController.swift in Sources */,
