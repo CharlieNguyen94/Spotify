@@ -229,7 +229,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             ) as? RecommendedTrackCollectionViewCell else {
              return UICollectionViewCell()
             }
-            cell.backgroundColor = .orange
+            cell.configure(with: viewModels[indexPath.row])
             return cell
         }
     }
@@ -330,7 +330,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             let group = NSCollectionLayoutGroup.vertical(
                 layoutSize: NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(1),
-                    heightDimension: .absolute(60)
+                    heightDimension: .absolute(80)
                 ),
                 subitem: item,
                 count: 1
