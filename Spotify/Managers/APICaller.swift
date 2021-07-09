@@ -20,6 +20,7 @@ final class APICaller {
         case failedToGetData
     }
     
+    /// API GET request for user profile from Spotify API
     public func getCurrentUserProfile(completion: @escaping(Result<UserProfile, Error>) -> Void) {
         createRequest(
             with: URL(string: Constants.baseAPIURL + "/me"),
