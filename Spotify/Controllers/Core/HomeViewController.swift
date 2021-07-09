@@ -15,6 +15,10 @@ enum BrowsesectionType {
 
 class HomeViewController: UIViewController {
     
+    private var newAlbums: [Album] = []
+    private var playlists: [Playlist] = []
+    private var tracks: [AudioTrack] = []
+    
     private var collectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewCompositionalLayout { sectionIndex, _ -> NSCollectionLayoutSection? in
         return HomeViewController.createSectionLayout(section: sectionIndex)
     })
@@ -133,16 +137,19 @@ class HomeViewController: UIViewController {
             }
             
             self.configureModels(newAlbums: newAlbums,
-                                 playlist: playlists,
+                                 playlists: playlists,
                                  tracks: tracks)
         }
     }
     
     private func configureModels(
         newAlbums: [Album],
-        playlist: [Playlist],
+        playlists: [Playlist],
         tracks: [AudioTrack]
     ) {
+        self.newAlbums = newAlbums
+        self.playlists = playlists
+        self.tracks = tracks
         // Configure Models
         sections.append(.newReleases(viewModels: newAlbums.compactMap ({
             return NewReleasesCellViewModel(
@@ -153,7 +160,7 @@ class HomeViewController: UIViewController {
             )
         })))
         
-        sections.append(.featuredPlaylists(viewModels: playlist.compactMap({
+        sections.append(.featuredPlaylists(viewModels: playlists.compactMap({
             return FeaturedPlaylistCellViewModel(
                 name: $0.name,
                 artworkURL: URL(string: $0.images.first?.url ?? ""),
@@ -268,7 +275,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             
             // Section
             let section = NSCollectionLayoutSection(group: horizontalGroup)
-            section.orthogonalScrollingBehavior = .groupPaging
+            section.orthogonalScrollingBehavior = .continuous
             return section
             
         case 1:
@@ -294,7 +301,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             
             let horizontalGroup = NSCollectionLayoutGroup.horizontal(
                 layoutSize: NSCollectionLayoutSize(
-                    widthDimension: .absolute(200),
+                    widthDimension: .absolute(180),
                     heightDimension: .absolute(400)
                 ),
                 subitem: verticalGroup,

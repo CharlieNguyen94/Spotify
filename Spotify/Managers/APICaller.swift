@@ -45,9 +45,10 @@ final class APICaller {
         
     }
     
+    /// API GET request for new releases from Spotify API
     public func getNewReleases(completion: @escaping ((Result<NewReleasesResponse, Error>)) -> Void) {
         createRequest(
-            with: URL(string: Constants.baseAPIURL + "/browse/new-releases?=limit50"),
+            with: URL(string: Constants.baseAPIURL + "/browse/new-releases?limit=21"),
             type: .GET
         ) { request in
             let task = URLSession.shared.dataTask(with: request) { data, _, error in
@@ -69,9 +70,10 @@ final class APICaller {
         }
     }
     
+    /// API GET request for featured playlists from Spotify API
     public func getFeaturedPlaylists(completion: @escaping ((Result<FeaturedPlaylistsResponse, Error>)) -> Void) {
         createRequest(
-            with: URL(string: Constants.baseAPIURL + "/browse/featured-playlists?=limit20"),
+            with: URL(string: Constants.baseAPIURL + "/browse/featured-playlists?limit=10"),
             type: .GET
         ) { request in
             let task = URLSession.shared.dataTask(with: request) { data, _, error in
@@ -93,6 +95,7 @@ final class APICaller {
         }
     }
     
+    /// API GET request for recommendations with seeds from Spotify API
     public func getRecommendations(genres: Set<String>, completion: @escaping ((Result<RecommendationsResponse, Error>) -> Void)) {
         let seeds = genres.joined(separator: ",")
         createRequest(
@@ -119,6 +122,7 @@ final class APICaller {
         }
     }
     
+    /// API GET request for recommended genres from Spotify API
     public func getRecommendedGenres(completion: @escaping ((Result<RecommendedGenresResponse, Error>) -> Void)) {
         createRequest(
             with: URL(
