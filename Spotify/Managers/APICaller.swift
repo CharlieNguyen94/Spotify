@@ -62,11 +62,11 @@ final class APICaller {
                 
                 do {
                     let result = try JSONDecoder().decode(PlaylistDetailsResponse.self, from: data)
-                    print(result)
+                    // print(result)
                     completion(.success(result))
                 }
                 catch {
-                    print(error)
+                    // print(error)
                     completion(.failure(error))
                 }
                 
@@ -91,7 +91,7 @@ final class APICaller {
                 
                 do {
                     let result = try JSONDecoder().decode(UserProfile.self, from: data)
-                    print(result)
+                    // print(result)
                     completion(.success(result))
                 } catch {
                     print(error.localizedDescription)
