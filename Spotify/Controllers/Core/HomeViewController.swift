@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum BrowsesectionType {
+enum BrowseSectionType {
     case newReleases(viewModels: [NewReleasesCellViewModel]) // 1
     case featuredPlaylists(viewModels: [FeaturedPlaylistCellViewModel]) // 2
     case recommendedTracks(viewModels: [RecommendedTrackCellViewModel]) // 3
@@ -30,7 +30,7 @@ class HomeViewController: UIViewController {
         return spinner
     }()
     
-    private var sections = [BrowsesectionType]()
+    private var sections = [BrowseSectionType]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -171,7 +171,7 @@ class HomeViewController: UIViewController {
             return RecommendedTrackCellViewModel(
                 name: $0.name,
                 artistName: $0.artists.first?.name ?? "-",
-                artworkURL: URL(string: $0.album.images.first?.url ?? "")
+                artworkURL: URL(string: $0.album?.images.first?.url ?? "")
             )
         })))
         
@@ -238,6 +238,28 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             }
             cell.configure(with: viewModels[indexPath.row])
             return cell
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let section = sections[indexPath.section]
+        switch section {
+        case .featuredPlaylists:
+            let playlist = playlists[indexPath.row]
+            let vc = PlaylistViewController(playlist: playlist)
+            vc.title = playlist.name
+            vc.navigationItem.largeTitleDisplayMode = .never
+            navigationController?.pushViewController(vc, animated: true)
+            break
+        case .newReleases:
+            let album = newAlbums[indexPath.row]
+            let vc = AlbumViewController(album: album)
+            vc.title = album.name
+            vc.navigationItem.largeTitleDisplayMode = .never
+            navigationController?.pushViewController(vc, animated: true)
+            break
+        case .recommendedTracks:
+            break
         }
     }
         
@@ -323,16 +345,6 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             )
             
             item.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
-            
-            // Vertical group in horizontal group
-            //            let verticalGroup = NSCollectionLayoutGroup.vertical(
-            //                layoutSize: NSCollectionLayoutSize(
-            //                    widthDimension: .fractionalWidth(1.0),
-            //                    heightDimension: .absolute(390)
-            //                ),
-            //                subitem: item,
-            //                count: 3
-            //            )
             
             let group = NSCollectionLayoutGroup.vertical(
                 layoutSize: NSCollectionLayoutSize(
