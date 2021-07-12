@@ -21,6 +21,7 @@ final class PlaylistHeaderCollectionReusableView: UICollectionReusableView {
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 22, weight: .semibold)
+        label.numberOfLines = 0
         return label
     }()
     
@@ -98,7 +99,7 @@ final class PlaylistHeaderCollectionReusableView: UICollectionReusableView {
             x: 10,
             y: imageView.bottom,
             width: width - 20,
-            height: 44
+            height: 88
         )
         
         descriptionLabel.frame = CGRect(
