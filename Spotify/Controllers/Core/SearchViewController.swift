@@ -51,17 +51,33 @@ class SearchViewController: UIViewController, UISearchResultsUpdating {
         }))
     
     // MARK: - Lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         searchController.searchResultsUpdater = self
         navigationItem.searchController = searchController
         view.addSubview(collectionView)
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(GenreCollectionViewCell.self, forCellWithReuseIdentifier: GenreCollectionViewCell.identifier)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .systemBackground
+        
+        APICaller.shared.getCategories { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let models):
+                    let first = models.first!
+                    APICaller.shared.getCategoryPlaylist(category: first) { Foo in
+                        
+                    }
+                    break
+                case .failure(let error):
+                    break
+                }
+            }
+            
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -78,10 +94,10 @@ class SearchViewController: UIViewController, UISearchResultsUpdating {
         
         print(query)
         // Perform search
-//        APICaller.shared.search
+        //        APICaller.shared.search
         
     }
-
+    
 }
 
 extension SearchViewController: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -94,8 +110,13 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .systemGreen
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: GenreCollectionViewCell.identifier,
+            for: indexPath
+        ) as? GenreCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        cell.configure(with: "Rock")
         return cell
     }
 }
