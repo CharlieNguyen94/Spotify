@@ -99,7 +99,7 @@ final class PlaylistHeaderCollectionReusableView: UICollectionReusableView {
             x: 10,
             y: imageView.bottom,
             width: width - 20,
-            height: 88
+            height: 44
         )
         
         descriptionLabel.frame = CGRect(

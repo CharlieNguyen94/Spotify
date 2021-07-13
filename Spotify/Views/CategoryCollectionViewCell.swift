@@ -74,11 +74,13 @@ class CategoryCollectionViewCell: UICollectionViewCell {
             width: contentView.width - 20,
             height: contentView.height / 2
         )
+        
         imageView.frame = CGRect(
             x: contentView.width / 2,
             y: 10,
             width: contentView.width / 2,
-            height: contentView.height / 2)
+            height: contentView.height / 2
+        )
     }
     
     func configure(with viewModel: CategoryCollectionViewCellViewModel) {
