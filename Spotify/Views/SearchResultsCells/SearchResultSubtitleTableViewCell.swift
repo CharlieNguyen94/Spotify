@@ -1,5 +1,5 @@
 //
-//  SearchResultDefaultTableViewCell.swift
+//  SearchResultSubtitleTableViewCell.swift
 //  Spotify
 //
 //  Created by Charlie Nguyen on 14/07/2021.
@@ -8,11 +8,18 @@
 import UIKit
 import SDWebImage
 
-class SearchResultDefaultTableViewCell: UITableViewCell {
-    static let identifier = "SearchResultDefaultTableViewCell"
+class SearchResultSubtitleTableViewCell: UITableViewCell {
+    static let identifier = "SearchResultSubtitleTableViewCell"
     
     private let label: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 1
+        return label
+    }()
+    
+    private let subtitlelabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .secondaryLabel
         label.numberOfLines = 1
         return label
     }()
@@ -27,6 +34,7 @@ class SearchResultDefaultTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(label)
         contentView.addSubview(iconImageView)
+        contentView.addSubview(subtitlelabel)
         contentView.clipsToBounds = true
         accessoryType = .disclosureIndicator
     }
@@ -46,14 +54,19 @@ class SearchResultDefaultTableViewCell: UITableViewCell {
             height: imageSize
         )
         
-        iconImageView.layer.cornerRadius = imageSize / 2
-        iconImageView.layer.masksToBounds = true
-        
+        let labelHeight = contentView.height / 2
         label.frame = CGRect(
             x: iconImageView.right + 10,
             y: 0,
             width: contentView.width - iconImageView.right - 15,
-            height: contentView.height
+            height: labelHeight
+        )
+        
+        subtitlelabel.frame = CGRect(
+            x: iconImageView.right + 10,
+            y: labelHeight,
+            width: contentView.width - iconImageView.right - 15,
+            height: labelHeight
         )
     }
     
@@ -61,10 +74,12 @@ class SearchResultDefaultTableViewCell: UITableViewCell {
         super.prepareForReuse()
         iconImageView.image = nil
         label.text = nil
+        subtitlelabel.text = nil
     }
     
-    func configure(with viewModel: SearchResultDefaultTableViewCellViewModel) {
+    func configure(with viewModel: SearchResultSubtitleTableViewCellViewModel) {
         label.text = viewModel.title
+        subtitlelabel.text = viewModel.subtitle
         iconImageView.sd_setImage(with: viewModel.imageURL, completed: nil)
     }
 
