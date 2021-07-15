@@ -14,6 +14,8 @@
 		95473E72269F07D50066E365 /* SearchResultDefaultTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95473E71269F07D50066E365 /* SearchResultDefaultTableViewCellViewModel.swift */; };
 		95473E74269F0CE90066E365 /* SearchResultSubtitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95473E73269F0CE90066E365 /* SearchResultSubtitleTableViewCell.swift */; };
 		95473E76269F0E0D0066E365 /* SearchResultSubtitleTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95473E75269F0E0D0066E365 /* SearchResultSubtitleTableViewCellModel.swift */; };
+		95473E7926A04A700066E365 /* PlaybackPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95473E7826A04A700066E365 /* PlaybackPresenter.swift */; };
+		95473E7B26A0902D0066E365 /* PlayerControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95473E7A26A0902D0066E365 /* PlayerControlsView.swift */; };
 		956AAF9026970C2D00C52F38 /* NewReleasesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AAF8F26970C2D00C52F38 /* NewReleasesResponse.swift */; };
 		958162CE2695D9F9005E3D6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958162CD2695D9F9005E3D6C /* AppDelegate.swift */; };
 		958162D02695D9F9005E3D6C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958162CF2695D9F9005E3D6C /* SceneDelegate.swift */; };
@@ -73,6 +75,8 @@
 		95473E71269F07D50066E365 /* SearchResultDefaultTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultDefaultTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		95473E73269F0CE90066E365 /* SearchResultSubtitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultSubtitleTableViewCell.swift; sourceTree = "<group>"; };
 		95473E75269F0E0D0066E365 /* SearchResultSubtitleTableViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultSubtitleTableViewCellModel.swift; sourceTree = "<group>"; };
+		95473E7826A04A700066E365 /* PlaybackPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackPresenter.swift; sourceTree = "<group>"; };
+		95473E7A26A0902D0066E365 /* PlayerControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlsView.swift; sourceTree = "<group>"; };
 		956AAF8F26970C2D00C52F38 /* NewReleasesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReleasesResponse.swift; sourceTree = "<group>"; };
 		958162CA2695D9F9005E3D6C /* Spotify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spotify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		958162CD2695D9F9005E3D6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +168,14 @@
 			path = SearchResultsCells;
 			sourceTree = "<group>";
 		};
+		95473E7726A04A490066E365 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				95473E7826A04A700066E365 /* PlaybackPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		958162C12695D9F9005E3D6C = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +197,7 @@
 		958162CC2695D9F9005E3D6C /* Spotify */ = {
 			isa = PBXGroup;
 			children = (
+				95473E7726A04A490066E365 /* Presenter */,
 				958162E62695DBE0005E3D6C /* Resources */,
 				958162E52695DBD5005E3D6C /* Managers */,
 				958162E42695DBCA005E3D6C /* ViewModels */,
@@ -215,6 +228,7 @@
 				95E302E3269C8576002057D7 /* TitleHeaderCollectionReusableView.swift */,
 				95E302E5269C9030002057D7 /* AlbumTrackCollectionViewCell.swift */,
 				95E302E9269CAE68002057D7 /* CategoryCollectionViewCell.swift */,
+				95473E7A26A0902D0066E365 /* PlayerControlsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -468,8 +482,10 @@
 				95473E6D269EECED0066E365 /* SearchResult.swift in Sources */,
 				95E302E02698D6B2002057D7 /* PlaylistHeaderCollectionReusableView.swift in Sources */,
 				958162EC2695DD6E005E3D6C /* LibraryViewController.swift in Sources */,
+				95473E7926A04A700066E365 /* PlaybackPresenter.swift in Sources */,
 				958163092695DE5A005E3D6C /* Artist.swift in Sources */,
 				958162FB2695DDF2005E3D6C /* PlaylistViewController.swift in Sources */,
+				95473E7B26A0902D0066E365 /* PlayerControlsView.swift in Sources */,
 				95E302D226973C68002057D7 /* RecommendedTrackCollectionViewCell.swift in Sources */,
 				958162D02695D9F9005E3D6C /* SceneDelegate.swift in Sources */,
 				958162F92695DDE5005E3D6C /* PlayerViewController.swift in Sources */,
