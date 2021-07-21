@@ -75,6 +75,91 @@ final class APICaller {
         }
     }
     
+    public func getCurrentUserPlaylists(completion: @escaping (Result<[Playlist], Error>) -> Void) {
+        createRequest(
+            with: URL(string: Constants.baseAPIURL + "/me/playlists/?limit=50"),
+            type: .GET
+        ) { request in
+            let task = URLSession.shared.dataTask(with: request) { data, _, error in
+                guard let data = data, error == nil else {
+                    completion(.failure(APIError.failedToGetData))
+                    return
+                }
+                
+                do {
+                    let result = try JSONDecoder().decode(LibraryPlaylistsResponse.self, from: data)
+                    completion(.success(result.items))
+                    print(result)
+                }
+                catch {
+                    print(error)
+                    completion(.failure(error))
+                }
+            }
+            task.resume()
+        }
+        
+    }
+    public func createPlaylists(with name: String, completion: @escaping (Bool) -> Void) {
+        getCurrentUserProfile { [weak self] result in
+            switch result {
+            case .success(let profile):
+                let urlString = Constants.baseAPIURL + "/users/\(profile.id)/playlists"
+                
+                self?.createRequest(with: URL(string: urlString), type: .POST) { baseRequest in
+                    var request = baseRequest
+                    let json = [
+                        "name": name
+                    ]
+                    request.httpBody = try? JSONSerialization.data(withJSONObject: json, options: .fragmentsAllowed)
+                    
+                    let task = URLSession.shared.dataTask(with: request) { data, _, error in
+                        guard let data = data, error == nil else {
+                            completion(false)
+                            return
+                        }
+                        
+                        do {
+                            let result = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                            if let response = result as? [String: Any], response["id"] as? String != nil {
+                                print("Created")
+                                completion(true)
+                            }
+                            else {
+                                print("No id")
+                            completion(false)
+                            }
+                        }
+                        catch {
+                            print(error.localizedDescription)
+                            completion(false)
+                        }
+                    }
+                    task.resume()
+                }
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+            
+            }
+        }
+        
+    }
+    public func addTrackToPlaylists(
+        track: AudioTrack,
+        playlist: Playlist,
+        completion: @escaping (Bool) -> Void
+    ) {
+        
+    }
+    public func removeTrackFromPlaylist(
+        track: AudioTrack,
+        playlist: Playlist,
+        completion: @escaping (Bool) -> Void
+    ) {
+        
+    }
+    
     // MARK: - Profile
     
     /// API GET request for user profile from Spotify API
@@ -119,7 +204,7 @@ final class APICaller {
                 
                 do {
                     let result = try JSONDecoder().decode(NewReleasesResponse.self, from: data)
-//                    print(result)
+                    //                    print(result)
                     completion(.success(result))
                 }
                 catch {
@@ -144,7 +229,7 @@ final class APICaller {
                 
                 do {
                     let result = try JSONDecoder().decode(FeaturedPlaylistsResponse.self, from: data)
-//                    print(result)
+                    //                    print(result)
                     completion(.success(result))
                 }
                 catch {
@@ -171,7 +256,7 @@ final class APICaller {
                 
                 do {
                     let result = try JSONDecoder().decode(RecommendationsResponse.self, from: data)
-//                    print(result)
+                    //                    print(result)
                     completion(.success(result))
                 }
                 catch {
@@ -197,7 +282,7 @@ final class APICaller {
                 
                 do {
                     let result = try JSONDecoder().decode(RecommendedGenresResponse.self, from: data)
-//                    print(result)
+                    //                    print(result)
                     completion(.success(result))
                 }
                 catch {
