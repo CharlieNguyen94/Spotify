@@ -35,7 +35,7 @@ class WelcomeViewController: UIViewController {
     }()
     
     private let logoImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "logo"))
+        let imageView = UIImageView(image: UIImage(named: "spotifyLogo"))
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
