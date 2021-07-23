@@ -98,7 +98,7 @@ final class APICaller {
     // MARK: - Playlists
     public func getPlaylistDetails(for playlist: Playlist, completion: @escaping (Result<PlaylistDetailsResponse, Error>) -> Void) {
         createRequest(
-            with: URL(string: Constants.baseAPIURL + "/playlists/?limit=1" + playlist.id),
+            with: URL(string: Constants.baseAPIURL + "/playlists/" + playlist.id),
             type: .GET
         ) { request in
             let task = URLSession.shared.dataTask(with: request) { data, _, error in
@@ -109,11 +109,11 @@ final class APICaller {
                 
                 do {
                     let result = try JSONDecoder().decode(PlaylistDetailsResponse.self, from: data)
-                    // print(result)
+                    print(result)
                     completion(.success(result))
                 }
                 catch {
-                    // print(error)
+                    print(error)
                     completion(.failure(error))
                 }
                 
