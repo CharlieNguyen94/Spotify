@@ -11,9 +11,9 @@ class WelcomeViewController: UIViewController {
     
     private let signInButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .white
         button.setTitle("Sign in with spotify", for: .normal)
         button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
         button.backgroundColor = .systemGreen
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 20
@@ -74,7 +74,7 @@ class WelcomeViewController: UIViewController {
             height: 50)
         
         logoImageView.frame = CGRect(x: (view.width - 120) / 2, y: (view.height - 350) / 2, width: 120, height: 120)
-        label.frame = CGRect(x: 30, y: logoImageView.bottom + 30, width: view.width - 60, height: 150)
+        label.frame = CGRect(x: 30, y: logoImageView.bottom, width: view.width - 60, height: 150)
     }
     
     @objc func didTapSignIn() {
