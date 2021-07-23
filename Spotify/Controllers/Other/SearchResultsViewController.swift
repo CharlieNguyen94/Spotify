@@ -151,7 +151,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
             }
             let viewModel = SearchResultSubtitleTableViewCellViewModel(
                 title: playlist.name,
-                subtitle: playlist.name,
+                subtitle: playlist.owner.display_name,
                 imageURL: URL(string: playlist.images.first?.url ?? ""))
             cell.configure(with: viewModel)
             return cell
@@ -166,6 +166,10 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sections[section].title
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
     }
 
 }

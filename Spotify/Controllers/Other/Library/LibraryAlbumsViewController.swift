@@ -10,9 +10,7 @@ import UIKit
 class LibraryAlbumsViewController: UIViewController {
 
     var albums = [Album]()
-    
-    public var selectionHandler: ((Playlist) -> Void)?
- 
+
     private let noAlbumsView = ActionLabelView()
     
     private let tableView: UITableView = {
@@ -22,6 +20,8 @@ class LibraryAlbumsViewController: UIViewController {
         return tableView
         
     }()
+    
+    private var observer: NSObjectProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,14 @@ class LibraryAlbumsViewController: UIViewController {
         tableView.dataSource = self
         view.addSubview(tableView)
         setUpNoAlbumsView()
-        fetchPlaylists()
+        fetchAlbums()
+        observer = NotificationCenter.default.addObserver(
+            forName: .albumSavedNotification,
+            object: nil,
+            queue: .main,
+            using: { [weak self] _ in
+                self?.fetchAlbums()
+        })
         
     }
     
@@ -45,7 +52,8 @@ class LibraryAlbumsViewController: UIViewController {
         tableView.frame = view.bounds
     }
     
-    private func fetchPlaylists() {
+    private func fetchAlbums() {
+        albums.removeAll()
         APICaller.shared.getCurrentUserAlbums { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
